@@ -8,24 +8,24 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:import/recommended',
     'plugin:jsx-a11y/recommended',
-    "prettier",
+    'prettier',
     'eslint-config-prettier',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh'],
   settings: {
-    react: {
-      version: 'detect',
-    },
     'import/resolver': {
       node: {
-        paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+      typescript: {
+        alwaysTryTypes: true,
       },
     },
   },
   rules: {
+    'import/no-unresolved': 'error',
     'import/order': ['error', { 'newlines-between': 'never' }],
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     'no-unused-vars': [
